@@ -1,0 +1,926 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 5285
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 20 Tf
+23. TL
+0.863 0.149 0.149 rg
+56.6929133858267775 785.1970866141732586 Td
+(HeartAI - Personalized Medical Report) Tj
+ET
+0.78 G
+56.6929133858267775 768.1892125984251152 m
+538.5826771653544256 768.1892125984251152 l
+S
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 742.6774015748030706 Td
+(Cardiac Health Report) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 702.9923622047243725 Td
+(1. Current Health Status Evaluation) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 663.3073228346456744 Td
+(This 34-year-old male patient presents with a concerning profile, despite several favorable health) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 643.4648031496062686 Td
+(markers. The Heart Attack Prediction Model, trained on Kaggle data and integrated with clinical) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 623.6222834645668627 Td
+(assessment, indicates a High Risk of a heart attack with a probability of 72.0%. This significant risk) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 603.7797637795274568 Td
+(assessment is particularly noteworthy given the patient's young age and the absence of traditional) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 583.9372440944881646 Td
+(risk factors such as diabetes, smoking, or a family history of heart disease.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 544.2522047244094665 Td
+(Crucially, the patient reports experiencing Typical Angina. This symptom is a strong indicator of) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 524.4096850393700606 Td
+(potential underlying coronary artery disease and is likely a primary driver of the high-risk ML) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 504.5671653543306547 Td
+(prediction. While the Resting ECG results are normal and there is no Exercise Induced Angina, the) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 484.7246456692913057 Td
+(presence of typical angina warrants immediate and thorough investigation.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 445.0396062992125508 Td
+(From a metabolic standpoint, the patient's Blood Pressure \(123 mmHg\) and Cholesterol \(134) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 425.1970866141731449 Td
+(mg/dl\) are currently within optimal ranges, which is a positive aspect. The Troponin level of 0.03) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 405.3545669291337958 Td
+(ng/mL, while generally considered within the normal reference range for ruling out acute myocardial) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 385.5120472440944468 Td
+(infarction, is not zero and, in conjunction with typical angina and the high ML probability, contributes) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 365.6695275590550409 Td
+(to the overall picture of heightened cardiac vigilance required. The Maximum Heart Rate \(thalachh\)) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 345.8270078740156919 Td
+(of 149 bpm is within expected limits for a 34-year-old during exertion, but its specific interpretation) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 325.9844881889763428 Td
+(within the ML model's algorithm contributes to the overall risk calculation.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 286.2994488188975311 Td
+(In summary, while many individual parameters appear healthy, the combination of symptomatic) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 266.4569291338582389 Td
+(typical angina and a high-risk ML prediction necessitates urgent attention and comprehensive) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 246.614409448818833 Td
+(cardiac evaluation.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 206.9293700787401349 Td
+(2. Specific Targets) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 167.2443307086613231 Td
+(Based on the provided data, the patient's current Blood Pressure and Cholesterol levels are already) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 147.4018110236219172 Td
+(within ideal, healthy ranges. Therefore, no reduction targets are set for these metrics; the focus) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 127.559291338582625 Td
+(should be on maintaining these excellent levels.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 87.8742519685038133 Td
+(Regarding Weight: The patient's current weight is 67 kg. Without knowing the patient's height, it is) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 68.0317322834645211 Td
+(not possible to calculate an exact ideal weight or a specific reduction target. However, 67 kg for an) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 48.1892125984251152 Td
+(adult male is generally indicative of a healthy weight, assuming an average height. The primary) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 5094
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 785.1970866141732586 Td
+(goal for weight should be maintenance of this healthy weight and optimization of body composition) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 765.3545669291338527 Td
+(through diet and exercise, rather than reduction.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 725.6695275590550409 Td
+(3. Personalized Dietary Modifications) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 685.9844881889763428 Td
+(Given the presence of typical angina and the high ML risk prediction, dietary modifications should) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 666.1419685039369369 Td
+(focus on supporting cardiovascular health, reducing inflammation, and maintaining optimal lipid and) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 646.2994488188976447 Td
+(blood pressure levels.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 606.614409448818833 Td
+(What to Avoid:) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 586.7718897637794271 Td
+(*   Saturated and Trans Fats: Limit red and processed meats, full-fat dairy products, fried foods, and) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 566.9293700787401349 Td
+(commercially baked goods.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 547.086850393700729 Td
+(*   Excess Sodium: Reduce intake of processed foods, canned soups, fast food, and excessive use) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 527.2443307086614368 Td
+(of table salt to help maintain healthy blood pressure.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 507.4018110236219741 Td
+(*   Refined Sugars and Processed Carbohydrates: Minimize sugary drinks, candies, pastries, and) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 487.559291338582625 Td
+(white bread, which can contribute to inflammation and metabolic stress.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 467.716771653543276 Td
+(*   Excessive Caffeine: While not directly causative of heart disease, high caffeine intake can) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 447.8742519685038701 Td
+(sometimes exacerbate chest discomfort in sensitive individuals. Monitor personal tolerance.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 408.1892125984251152 Td
+(What to Eat:) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 388.3466929133857661 Td
+(*   Fruits and Vegetables: Emphasize a wide variety of colorful fruits and vegetables daily. These) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 368.5041732283464171 Td
+(are rich in vitamins, minerals, fiber, and antioxidants.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 348.6616535433070112 Td
+(*   Whole Grains: Choose whole grains like oats, brown rice, quinoa, and whole-wheat bread over) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 328.8191338582676053 Td
+(refined grains.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 308.9766141732283131 Td
+(*   Lean Proteins: Incorporate fish \(especially fatty fish rich in Omega-3s like salmon, mackerel,) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 289.1340944881889072 Td
+(sardines\), skinless poultry, legumes \(beans, lentils\), and tofu.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 269.2915748031495013 Td
+(*   Healthy Fats: Include sources of monounsaturated and polyunsaturated fats such as avocados,) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 249.4490551181102092 Td
+(nuts, seeds, and olive oil.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 229.6065354330708033 Td
+(*   Low-Fat Dairy: Opt for low-fat or fat-free dairy products.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 209.7640157480313974 Td
+(*   Hydration: Drink plenty of water throughout the day.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 189.9214960629919915 Td
+(*   Portion Control: Practice mindful eating and appropriate portion sizes to maintain a healthy) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 170.0789763779526993 Td
+(weight.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 130.3939370078738875 Td
+(4. Recommended Exercises & Lifestyle Changes) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 90.7088976377951894 Td
+(Given the diagnosis of Typical Angina and the high-risk prediction, exercise and lifestyle changes) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 70.8663779527557836 Td
+(must be approached with extreme caution and, most importantly, under direct medical supervision.) Tj
+ET
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 5538
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 785.1970866141732586 Td
+(Recommended Exercises:) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 765.3545669291338527 Td
+(*   Medical Clearance is Essential: Before initiating any exercise program, the patient MUST consult) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 745.5120472440944468 Td
+(with a cardiologist. A stress test or other diagnostic evaluations may be necessary to determine the) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 725.6695275590550409 Td
+(safety and appropriate intensity of physical activity.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 705.8270078740157487 Td
+(*   Gradual Progression: If cleared for exercise, begin with low-intensity activities and gradually) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 685.9844881889763428 Td
+(increase duration and intensity.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 666.1419685039369369 Td
+(*   Types of Exercise: Brisk walking, light cycling, or swimming are generally good starting points.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 646.2994488188976447 Td
+(These activities provide cardiovascular benefits without excessive strain.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 626.4569291338582389 Td
+(*   Monitor Symptoms: It is crucial to monitor for any chest pain, shortness of breath, or discomfort) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 606.614409448818833 Td
+(during exercise. If any symptoms of angina occur, stop the activity immediately and rest.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 586.7718897637794271 Td
+(*   Consistency: Aim for regular, consistent exercise sessions as advised by the cardiologist.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 566.9293700787401349 Td
+(*   Consider Cardiac Rehabilitation: A structured cardiac rehabilitation program, if recommended by) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 547.086850393700729 Td
+(a cardiologist, can provide supervised exercise and education tailored to the patient's condition.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 507.4018110236219741 Td
+(Lifestyle Changes:) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 487.559291338582625 Td
+(*   Stress Management: High levels of stress can exacerbate cardiac symptoms. Incorporate) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 467.716771653543276 Td
+(stress-reducing techniques such as meditation, deep breathing exercises, yoga, or engaging in) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 447.8742519685038701 Td
+(relaxing hobbies.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 428.0317322834645211 Td
+(*   Regular Medical Follow-up: Adhere strictly to all scheduled appointments with the cardiologist) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 408.1892125984251152 Td
+(and other healthcare providers.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 388.3466929133857661 Td
+(*   Medication Adherence: If medications are prescribed by the cardiologist, take them exactly as) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 368.5041732283464171 Td
+(directed.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 348.6616535433070112 Td
+(*   Maintain Healthy Weight: Continue the current healthy habits to maintain the optimal weight of) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 328.8191338582676053 Td
+(67 kg.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 308.9766141732283131 Td
+(*   Avoidance of Triggers: Identify and actively avoid any specific environmental or emotional) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 289.1340944881889072 Td
+(triggers that may precipitate chest pain.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 269.2915748031495013 Td
+(*   Adequate Sleep: Ensure 7-9 hours of quality sleep per night, as poor sleep can negatively) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 249.4490551181102092 Td
+(impact cardiovascular health.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 229.6065354330708033 Td
+(*   Moderate Alcohol Consumption: If alcohol is consumed, do so in moderation \(up to one drink per) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 209.7640157480313974 Td
+(day for men\).) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 170.0789763779526993 Td
+(Disclaimer: This report is generated by an AI assistant based on the provided data and should not) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 150.2364566929132934 Td
+(be considered a substitute for professional medical advice. It is imperative that the patient consults) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 130.3939370078738875 Td
+(with a qualified cardiologist or healthcare provider for a comprehensive evaluation, diagnosis, and) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.196 g
+56.6929133858267775 110.5514173228345953 Td
+(personalized treatment plan.) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R ]
+/Count 3
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+21 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+22 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 9 0 R
+/F2 10 0 R
+/F3 11 0 R
+/F4 12 0 R
+/F5 13 0 R
+/F6 14 0 R
+/F7 15 0 R
+/F8 16 0 R
+/F9 17 0 R
+/F10 18 0 R
+/F11 19 0 R
+/F12 20 0 R
+/F13 21 0 R
+/F14 22 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+23 0 obj
+<<
+/Producer (jsPDF 4.2.1)
+/CreationDate (D:20260721124617+05'30')
+>>
+endobj
+24 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 25
+0000000000 65535 f 
+0000016499 00000 n 
+0000018332 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000005489 00000 n 
+0000005626 00000 n 
+0000010772 00000 n 
+0000010909 00000 n 
+0000016568 00000 n 
+0000016693 00000 n 
+0000016824 00000 n 
+0000016958 00000 n 
+0000017096 00000 n 
+0000017220 00000 n 
+0000017349 00000 n 
+0000017481 00000 n 
+0000017617 00000 n 
+0000017745 00000 n 
+0000017872 00000 n 
+0000018001 00000 n 
+0000018134 00000 n 
+0000018236 00000 n 
+0000018584 00000 n 
+0000018670 00000 n 
+trailer
+<<
+/Size 25
+/Root 24 0 R
+/Info 23 0 R
+/ID [ <FE5C2D7E51AE2B6B7B7513B8B35D4E60> <FE5C2D7E51AE2B6B7B7513B8B35D4E60> ]
+>>
+startxref
+18774
+%%EOF

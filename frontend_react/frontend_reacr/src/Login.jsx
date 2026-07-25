@@ -21,7 +21,8 @@ export default function Login({ onLoginSuccess }) {
     setLoading(true);
 
     try {
-      const response = await fetch(' https://heart-ai-backend.onrender.com/api/login', {
+      // ✅ Added trailing slash '/' for FastAPI endpoint
+      const response = await fetch('https://heart-ai-backend.onrender.com/api/login/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -87,7 +88,8 @@ export default function Login({ onLoginSuccess }) {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="lakshmiprasannagudikandula441@gmail.com"
+              placeholder="name@gmail.com"
+              autoComplete="off"
               className="input input-bordered w-full rounded-xl focus:outline-none"
               required
             />
@@ -115,7 +117,6 @@ export default function Login({ onLoginSuccess }) {
           </button>
         </form>
 
-        {/* 🎯 ఇక్కడే సరిగ్గా Link to="/signup" మరియు to="/register" సెట్ చేసా భాయ్ */}
         <div className="text-center mt-6 text-sm text-base-content/70">
           Don't have an account?{" "}
           <Link

@@ -18,7 +18,7 @@ export default function Signup({ onLoginSuccess }) {
     setLoading(true);
 
     try {
-      const response = await fetch('https://heart-ai-backend.onrender.com/api/Signup', {
+      const response = await fetch('https://heart-ai-backend.onrender.com/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

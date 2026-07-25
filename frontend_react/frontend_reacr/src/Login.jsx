@@ -21,8 +21,8 @@ export default function Login({ onLoginSuccess }) {
     setLoading(true);
 
     try {
-      // ✅ Added trailing slash '/' for FastAPI endpoint
-      const response = await fetch('https://heart-ai-backend.onrender.com/api/login/', {
+      // Express.js Node backend endpoint (No trailing slash)
+      const response = await fetch('https://heart-ai-backend.onrender.com/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -33,7 +33,7 @@ export default function Login({ onLoginSuccess }) {
       if (response.ok && data.status === 'success') {
         setMessage({ text: 'Login Successful!', type: 'success' });
         
-        // LocalStorage లో యూజర్ వివరాలు దాస్తున్నాం
+        // LocalStorage lo store cheyadamento
         localStorage.setItem('user', JSON.stringify(data.user));
         
         if (onLoginSuccess) {
@@ -69,7 +69,7 @@ export default function Login({ onLoginSuccess }) {
           <p className="text-sm text-base-content/60 mt-1">Login to access Heart Health AI</p>
         </div>
 
-        {/* ⚠️ Error / Success Alert Messages */}
+        {/* Alert Messages */}
         {message.text && (
           <div className={`p-3 mb-4 text-sm font-semibold text-center rounded-xl border ${
             message.type === 'success' 
@@ -102,7 +102,7 @@ export default function Login({ onLoginSuccess }) {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              placeholder="••••"
+              placeholder="••••••••"
               className="input input-bordered w-full rounded-xl focus:outline-none"
               required
             />

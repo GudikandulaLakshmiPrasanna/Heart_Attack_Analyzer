@@ -1,4 +1,3 @@
-// src/Signup.jsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -18,8 +17,8 @@ export default function Signup({ onLoginSuccess }) {
     setLoading(true);
 
     try {
-      // ✅ Added trailing slash '/' for FastAPI endpoint
-      const response = await fetch('https://heart-ai-backend.onrender.com/api/signup/', {
+      // Express.js Node backend endpoint (No trailing slash)
+      const response = await fetch('https://heart-ai-backend.onrender.com/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -27,7 +26,7 @@ export default function Signup({ onLoginSuccess }) {
 
       const data = await response.json();
 
-      if (response.ok && (data.status === 'success' || data.message === 'User created successfully')) {
+      if (response.ok && data.status === 'success') {
         setMessage({ text: 'Signup Successful! Redirecting...', type: 'success' });
         const userData = { name: formData.name, email: formData.email };
         localStorage.setItem("user", JSON.stringify(userData));

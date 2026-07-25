@@ -93,7 +93,7 @@ app.get('/', (req, res) => {
 app.post('/api/predict', async (req, res) => {
     try {
         const patientData = req.body;
-        const pythonResponse = await axios.post('http://127.0.0.1:8000/predict', patientData);
+        const pythonResponse = await axios.post(' https://heart-ai-backend.onrender.com/predict', patientData);
         const { heart_attack_risk, probability, gen_ai_report } = pythonResponse.data;
 
         const newPatientReport = new Patient({
@@ -219,5 +219,5 @@ app.post('/api/send-report-to-doctor', upload.single('reportFile'), async (req, 
 // -------------------------------------------------------------
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`MERN server http://localhost:${PORT} it was running!`);
+    console.log(`Server is running on port ${PORT}`);
 });

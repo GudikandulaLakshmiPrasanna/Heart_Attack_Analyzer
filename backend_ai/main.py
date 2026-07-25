@@ -1,11 +1,13 @@
+import os
+import pickle
+from datetime import datetime
+from typing import Optional
+
+import pandas as pd
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import pickle
-import pandas as pd
-from typing import Optional
-from pymongo import MongoClient 
-from datetime import datetime
+from pymongo import MongoClient
 
 app = FastAPI()
 
@@ -18,8 +20,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 🎯 MongoDB Compass కనెక్షన్
-client = MongoClient("mongodb://localhost:27017/") 
+# 🎯 MongoDB Connection (Render URL lekunte Local URL fallback)
+MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
+client = MongoClient(MONGO_URI)
 db = client["heart_disease_db"]
 patients_collection = db["patients"]
 
@@ -156,26 +159,19 @@ def predict_heart_attack(data: PatientData):
     age_val = int(data.age)
     cp_val = int(data.cp)
 
-    # -------------------------------------------------------------
-    # 🎯 CLEAR & RELIABLE RISK CALCULATION (Dynamic Logic)
-    # -------------------------------------------------------------
-    
     # 🔴 1. HIGH RISK CONDITIONS
-    # Troponin high, or BP >= 150, or Cholesterol >= 260, or Severe Chest Pain (cp=3)
     if troponin_val > 0.04 or bp_val >= 150 or chol_val >= 260 or cp_val == 3:
         risk_text = "HIGH RISK"
         prediction_val = 1
         heart_disease_risk_percentage = 82.0
 
     # 🟢 2. LOW RISK CONDITIONS
-    # Young Age (<=35), Normal BP (<125), Normal Chol (<200), Normal Troponin (<=0.04), No/Minimal Chest Pain (cp <= 1)
     elif age_val <= 35 and bp_val < 125 and chol_val < 200 and troponin_val <= 0.04 and cp_val in [0, 1]:
         risk_text = "LOW RISK"
         prediction_val = 0
         heart_disease_risk_percentage = 18.0
 
     # 🟡 3. MEDIUM RISK CONDITIONS
-    # Borderline BP (125-149) OR Borderline Chol (200-259) OR Age 36-55 OR Moderate Chest Pain
     else:
         risk_text = "MEDIUM RISK"
         prediction_val = 1
@@ -208,7 +204,11 @@ def predict_heart_attack(data: PatientData):
         "createdAt": datetime.now()
     }
     
-    patients_collection.insert_one(patient_record)
+    # Try block so database issue won't crash the whole API server
+    try:
+        patients_collection.insert_one(patient_record)
+    except Exception as e:
+        print(f"Database error ignored to prevent app crash: {e}")
 
     return {
         "heart_attack_risk": prediction_val,
@@ -216,3 +216,9 @@ def predict_heart_attack(data: PatientData):
         "mlRisk": risk_text,
         "gen_ai_report": gen_ai_report
     }
+
+# 🚀 Render Deployment Target
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)

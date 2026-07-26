@@ -21,8 +21,8 @@ export default function Login({ onLoginSuccess }) {
     setLoading(true);
 
     try {
-      // Express.js Node backend endpoint (No trailing slash)
-      const response = await fetch('https://heart-ai-backend.onrender.com/api/login', {
+      // ✅ Render Backend API URL ఇక్కడ చేర్చాం
+      const response = await fetch('https://heart-attack-analyzer.onrender.com/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

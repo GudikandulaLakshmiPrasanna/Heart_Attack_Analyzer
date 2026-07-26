@@ -66,7 +66,8 @@ export default function Predict() {
     };
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/predict', {
+      // ✅ Render Backend API URL ఇక్కడ చేర్చాం
+      const response = await fetch('https://heart-attack-analyzer.onrender.com/predict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -77,13 +78,13 @@ export default function Predict() {
       const data = await response.json();
       const prob = data.probability || 0;
 
-      // 🎯 Dynamic Risk Calculation Including MEDIUM RISK
+      // 🎯 Dynamic Risk Calculation
       let finalRisk = data.mlRisk;
       if (!finalRisk) {
         if (prob >= 65) {
           finalRisk = "HIGH RISK";
         } else if (prob >= 35) {
-          finalRisk = "MEDIUM RISK"; // 👈 MEDIUM RISK ఇక్కడ పక్కాగా సెట్ అవుతుంది
+          finalRisk = "MEDIUM RISK";
         } else {
           finalRisk = "LOW RISK";
         }
@@ -94,7 +95,7 @@ export default function Predict() {
       setAiReport(data.gen_ai_report);
     } catch (error) {
       console.error("Error:", error);
-      setAiReport("Failed to connect to server. Ensure FastAPI backend is running.");
+      setAiReport("Failed to connect to server. Ensure Backend on Render is awake and running.");
     } finally {
       setLoading(false);
     }

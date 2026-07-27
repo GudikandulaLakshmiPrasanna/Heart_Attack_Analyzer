@@ -3,8 +3,7 @@
   themes: light --default, dark, retro, cyberpunk, valentine, aqua;
 }
 
-/* 🔥 నీ స్ట్రక్చర్ మార్చకుండా, ఆ కింద ఉన్న వైట్ పేజీ మొత్తానికి 
-   Cyberpunk/Retro రంగులు వచ్చేలా చేసే మ్యాజిక్ ఇది భాయ్! */
+/* Cyber punk and retrio templetes here! */
 .bg-gray-50 {
   background-color: var(--fallback-b1, initial) !important;
   background-color: rgb(var(--b1) / var(--tw-bg-opacity, 1)) !important;

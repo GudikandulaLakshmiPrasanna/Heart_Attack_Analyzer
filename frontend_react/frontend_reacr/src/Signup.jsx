@@ -17,7 +17,7 @@ export default function Signup({ onLoginSuccess }) {
     setLoading(true);
 
     try {
-      // ✅ Render Backend API URL ఇక్కడ అప్‌డేట్ చేసాం
+      // ✅ Render Backend API URL here updated
       const response = await fetch('https://heart-attack-analyzer.onrender.com/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

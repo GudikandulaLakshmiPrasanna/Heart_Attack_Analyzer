@@ -9,7 +9,7 @@ function Register() {
     bloodPressure: '',    // ML Model: trtbps
     cholesterol: '',       // ML Model: chol
     
-    // క్లినికల్ & లైఫ్ స్టైల్ ఫీల్డ్స్
+    // clinical and life fields
     cp: '0',              // Chest Pain Type (0 to 3)
     restecg: '0',         // Resting ECG (0 to 2)
     thalachh: '',         // Maximum Heart Rate Achieved
@@ -19,7 +19,7 @@ function Register() {
     familyHistory: '0',   // Family History of Heart Disease (1 = Yes, 0 = No)
     troponin: '',         // Troponin Levels (Optional)
 
-    // మోడల్ కి కావాల్సిన మిగతా డెఫాల్ట్ వాల్యూస్
+    
     fbs: '0',
     oldpeak: '0.0',
     slp: '2',
@@ -40,7 +40,7 @@ function Register() {
     e.preventDefault();
     setLoading(true);
     setAiReport("");
-    setMlRisk("");          // కొత్త ప్రెడిక్షన్ కోసం పాత డేటాని రీసెట్ చేస్తున్నాం
+    setMlRisk("");          // for new prediction old data reset
     setMlProbability(0);
 
     const payload = {
@@ -78,7 +78,7 @@ function Register() {
       
       const data = await response.json();
       
-      // 🎯 బ్యాకెండ్ నుంచి వచ్చే ఒరిజినల్ Kaggle మోడల్ రిజల్ట్స్ ని ఇక్కడ డైనమిక్ గా సేవ్ చేస్తున్నాం భాయ్!
+      // 🎯 from backend orginal Kaggle model is savedhere dynamically!
       setMlRisk(data.heart_attack_risk === 1 ? "HIGH RISK" : "LOW RISK");
       setMlProbability(data.probability);
       setAiReport(data.gen_ai_report);
@@ -90,12 +90,12 @@ function Register() {
     }
   };
 
-  // 📄 🎯 మల్టీ-పేజ్ PDF డౌన్‌లోడ్ చేసే పక్కా ఫంక్షన్
+  // multi page  PDF  download 
   const downloadPDF = () => {
     if (!aiReport) return;
     const doc = new jsPDF();
     
-    // PDF హెడర్ స్టైలింగ్
+    // PDF header styling
     doc.setFont("Helvetica", "bold");
     doc.setFontSize(20);
     doc.setTextColor(220, 38, 38); 
@@ -104,28 +104,28 @@ function Register() {
     doc.setDrawColor(200, 200, 200);
     doc.line(20, 26, 190, 26); 
 
-    // బాడీ టెక్స్ట్ సెట్టింగ్స్
+    // body text setting
     doc.setFont("Helvetica", "normal");
     doc.setFontSize(11);
     doc.setTextColor(50, 50, 50);
 
-    // జెమిని ఇచ్చిన రిపోర్ట్ ని పేజీ విడ్త్ కి తగ్గట్టు ముక్కలు చేస్తుంది
+    // geminii report is breaked accourding to page width
     const splitReport = doc.splitTextToSize(aiReport, 170);
     
-    let yAxis = 35;          // మొదటి పేజీ స్టార్టింగ్ పాయింట్
-    const pageHeight = 280;  // A4 సైజ్ పేజీ మాక్సిమం హైట్
+    let yAxis = 35;          //  first page starting point
+    const pageHeight = 280;  // A4  size maximum height
 
-    // 🎯 లూప్ వేసి ప్రతి లైన్ ని చెక్ చేస్తూ.. పేజీ నిండిపోగానే కొత్త పేజీ యాడ్ చేస్తుంది భాయ్!
+    // 
     for (let i = 0; i < splitReport.length; i++) {
       if (yAxis > pageHeight) {
-        doc.addPage();       // 👈 కొత్త పేజీ క్రియేట్ అవుతుంది!
-        yAxis = 20;          // కొత్త పేజీలో మళ్ళీ పైనుంచి స్టార్ట్ అవుతుంది
+        doc.addPage();       // new page creation!
+        yAxis = 20;          //  In the new page again satted from the first
       }
       doc.text(splitReport[i], 20, yAxis);
-      yAxis += 7;            // లైన్ కి లైన్ కి మధ్య గ్యాప్ (Line spacing)
+      yAxis += 7;            //  (Line spacing)
     }
 
-    // ఫైనల్ గా ఫుల్ PDF ని సేవ్ చేస్తుంది
+    // finally full PDF saved
     doc.save(`HeartAI_Gemini_Report.pdf`);
   };
 
@@ -239,7 +239,7 @@ function Register() {
       {aiReport && (
         <div className="mt-8 p-6 bg-base-200 border border-base-300 rounded-2xl text-center space-y-4 transition-all duration-300">
           
-          {/* ప్రతి ఒక్క వ్యక్తి డేటా బట్టి మారే డైనమిక్ ప్రిడిక్షన్ బాక్స్ లు భాయ్! */}
+          {/* every ones data  dynamicallyy changed box! */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div className={`p-4 border rounded-xl text-center ${mlRisk === "HIGH RISK" ? "bg-error/10 border-error/20" : "bg-success/10 border-success/20"}`}>
               <span className="block text-xs uppercase font-bold text-base-content/60 mb-1">Kaggle ML Prediction</span>

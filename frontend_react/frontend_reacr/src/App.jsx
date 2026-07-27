@@ -5,10 +5,10 @@ import Signup from "./Signup";
 import Login from "./Login"; 
 import Contact from "./Contact"; 
 import Predict from "./Predict"; 
-import About from "./About"; // 👈 1. About కాంపోనెంట్ ఇంపోర్ట్ చేసాం
+import About from "./About"; //
 
 export default function App() {
-  // 🎯 యూజర్ లాగిన్ అయ్యారా లేదా చెక్ చేయడానికి స్టేట్
+  // checking user logged or not
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem("user");
     return savedUser ? JSON.parse(savedUser) : null;
@@ -38,16 +38,16 @@ export default function App() {
       `}} />
 
       <div className="min-h-screen bg-gray-50 text-gray-900 transition-colors duration-300">
-        {/* Navbar కి user details & logout function పాస్ చేస్తున్నాం */}
+        {/* Navbar కి user details & logout function doing passing*/}
         <Navbar user={user} onLogout={handleLogout} />
       
-        {/* 📋 రౌటింగ్ సెటప్ */}
+        {/* routing setup*/}
         <Routes>
-          {/* 🏠 1. హోమ్ పేజీ రౌట్ (/) */}
+          {/* home page route (/) */}
           <Route path="/" element={
             <div className="max-w-7xl mx-auto px-10 py-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
               
-              {/* 👈 ఎడమ వైపు: టెక్స్ట్ కంటెంట్ */}
+              {/* left side text content*/}
               <div className="text-center lg:text-left">
                 <h1 className="text-5xl lg:text-6xl font-extrabold leading-tight">
                   Welcome to <span className="text-primary">HeartAI</span>
@@ -57,7 +57,7 @@ export default function App() {
                   <span className="text-red-500 font-bold">Save the Heart</span> is a message that encourages people to take care of their heart through healthy daily habits. Regular exercise, a balanced diet, avoiding tobacco, managing stress, and getting enough sleep can greatly reduce the risk of heart disease. Regular health checkups also help detect problems early. A healthy heart supports a healthier, longer, and more active life.
                 </p>
                 
-                {/* 🎯 బటన్స్ - లాగిన్ కాకపోతే Login / Signup చూపిస్తుంది */}
+                {/* buttons  Login / Signup showing*/}
                 <div className="mt-8 flex gap-4 justify-center lg:justify-start">
                   {!user ? (
                     <>
@@ -76,7 +76,7 @@ export default function App() {
                 </div>
               </div>
 
-              {/* 👉 కుడి వైపు: ఇమేజ్ సెక్షన్ */}
+              {/* right side section */}
               <div className="w-full flex justify-end items-center mt-10 lg:mt-16">
                 <img 
                   src="/heart1.png" 
@@ -87,10 +87,10 @@ export default function App() {
             </div>
           } />
 
-          {/* ℹ️ 2. అబౌట్ పేజీ రౌట్ (/about) - 👈 2. ఇక్కడ అబౌట్ రౌట్ యాడ్ చేసాం */}
+          {/* About page route (/about)  */}
           <Route path="/about" element={<About />} />
 
-          {/* 🔑 3. లాగిన్ పేజీ రౌట్ (/login) */}
+          {/* login page route (/login) */}
           <Route 
             path="/login" 
             element={
@@ -98,7 +98,7 @@ export default function App() {
             } 
           />
 
-          {/* 📝 4. సైన్అప్ పేజీ రౌట్స్ (/signup & /register) */}
+          {/* sign up page routes (/signup & /register) */}
           <Route 
             path="/signup" 
             element={
@@ -112,7 +112,7 @@ export default function App() {
             } 
           />
 
-          {/* 🩺 5. ప్రిడిక్షన్ పేజీ రౌట్ (/predict) - లాగిన్ ఐతేనే ఓపెన్ అవుతుంది */}
+          {/* prediction page route (/predict) - logged means open */}
           <Route 
             path="/predict" 
             element={
@@ -120,7 +120,7 @@ export default function App() {
             } 
           />
 
-          {/* 📩 6. కాంటాక్ట్ పేజీ రౌట్ (/contact) - లాగిన్ ఐతేనే ఓపెన్ అవుతుంది */}
+          {/* 📩 6.contact page route (/contact) - logged means showed */}
           <Route 
             path="/contact" 
             element={

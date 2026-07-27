@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Navbar({ user, onLogout }) {
   const [currentTheme, setCurrentTheme] = useState('light');
 
-  // 🌍 థీమ్ ని వెబ్‌పేజీ రూట్ కి అప్లై చేసే లాజిక్ భాయ్
+  
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', currentTheme);
   }, [currentTheme]);
@@ -19,7 +19,7 @@ export default function Navbar({ user, onLogout }) {
         <div className="flex items-center gap-8">
           <Link to="/" className="text-lg font-semibold no-underline text-current">Home</Link>
           
-          {/* 🎯 యూజర్ లాగిన్ అయి ఉంటే Assessment పేజీకి, లేకపోతే Register పేజీకి వెళ్తుంది */}
+          {/* User logged means for Assessment page , or  Register page  */}
           {user ? (
             <Link to="/predict" className="text-lg font-semibold no-underline text-current">
               Assessment
@@ -34,7 +34,7 @@ export default function Navbar({ user, onLogout }) {
           <Link to="/about" className="text-lg font-semibold no-underline text-current">About</Link>
         </div>
 
-        {/* 🎨 DaisyUI అఫీషియల్ రేడియో బటన్ థీమ్ డ్రాప్‌డౌన్ */}
+        {/* 🎨 DaisyUI  option here */}
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn m-1 font-semibold flex items-center gap-2 capitalize">
             Theme ({currentTheme})

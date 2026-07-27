@@ -5,14 +5,14 @@ export default function Contact({ user }) {
   const [status, setStatus] = useState({ text: '', type: '' });
   const [loading, setLoading] = useState(false);
 
-  // 🎯 ఇక్కడ నీ Doctor Email ID ఇవ్వు భాయ్
-  const DOCTOR_EMAIL = "yourdoctor@gmail.com"; // 👈 నీ డాక్టర్ ఇమెయిల్ ఇక్కడ మార్చుకో
+  //  Here Doctor Email ID  is given
+  const DOCTOR_EMAIL = "yourdoctor@gmail.com"; // 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!reportFile) {
-      setStatus({ text: 'దయచేసి మీ Gemini AI Report ఫైల్‌ని అప్‌లోడ్ చేయండి!', type: 'error' });
+      setStatus({ text: ' Please  do Gemini AI Report Upload', type: 'error' });
       return;
     }
 
@@ -25,7 +25,7 @@ export default function Contact({ user }) {
     formData.append('reportFile', reportFile);
 
     try {
-      const response = await fetch('http://localhost:5000/api/send-report-to-doctor', {
+      const response = await fetch(' https://heart-ai-backend.onrender.com/api/send-report-to-doctor', {
         method: 'POST',
         body: formData,
       });

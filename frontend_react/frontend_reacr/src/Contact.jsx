@@ -5,14 +5,14 @@ export default function Contact({ user }) {
   const [status, setStatus] = useState({ text: '', type: '' });
   const [loading, setLoading] = useState(false);
 
-  //  Here Doctor Email ID  is given
-  const DOCTOR_EMAIL = "yourdoctor@gmail.com"; // 
+  // 🩺 Doctor Email ID
+  const DOCTOR_EMAIL = "classnotwo1223@gmail.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!reportFile) {
-      setStatus({ text: ' Please  do Gemini AI Report Upload', type: 'error' });
+      setStatus({ text: 'Please upload Gemini AI Report first!', type: 'error' });
       return;
     }
 
@@ -23,9 +23,11 @@ export default function Contact({ user }) {
     formData.append('userEmail', user?.email);
     formData.append('doctorEmail', DOCTOR_EMAIL);
     formData.append('reportFile', reportFile);
+    formData.append('patientName', user?.name || "Patient");
 
     try {
-      const response = await fetch(' https://heart-ai-backend.onrender.com/api/send-report-to-doctor', {
+      // 🚀 Fixed URL and removed unwanted space
+      const response = await fetch('https://heart-backend-mern.onrender.com/api/send-report-to-doctor', {
         method: 'POST',
         body: formData,
       });
@@ -35,7 +37,7 @@ export default function Contact({ user }) {
       if (response.ok && data.status === 'success') {
         setStatus({ text: '✅ Gemini Report & Patient Details sent to Doctor successfully!', type: 'success' });
         setReportFile(null);
-        e.target.reset(); // Clear input
+        e.target.reset(); // Clear form input
       } else {
         setStatus({ text: data.message || 'Failed to send report!', type: 'error' });
       }
@@ -68,7 +70,7 @@ export default function Contact({ user }) {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           
-          {/* 📄 Gemini AI Report File Upload (PDF / Image) */}
+          {/* 📄 Gemini AI Report File Upload (PDF / File) */}
           <div>
             <label className="block text-sm font-bold text-gray-700 mb-2">
               Upload Gemini AI Health Report (PDF / File)
@@ -80,7 +82,7 @@ export default function Contact({ user }) {
               required
             />
             <p className="text-xs text-gray-400 mt-2">
-              *By Seeing this doctor gives you  Medications.
+              *By Seeing this doctor gives you Medications.
             </p>
           </div>
 

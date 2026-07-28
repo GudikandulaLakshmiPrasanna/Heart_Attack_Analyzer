@@ -5,9 +5,19 @@ const cors = require('cors');
 const axios = require('axios');
 const nodemailer = require('nodemailer');
 const multer = require('multer');
+const path = require('path');
 const bcrypt = require('bcryptjs');
 
-const upload = multer({ dest: 'uploads/' });
+// 🛠️ Updated Multer Storage to preserve file name and .pdf extension
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads/');
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+const upload = multer({ storage: storage });
 
 const app = express();
 app.use(express.json());
@@ -98,13 +108,12 @@ app.post('/api/predict', async (req, res) => {
     try {
         const patientData = req.body;
         
-        // 🎯 .env నుండి Python Backend URL తీసుకోవడం + 60s Timeout ఇవ్వడం
         const PYTHON_AI_URL = process.env.PYTHON_AI_URL || 'https://heart-ai-backend.onrender.com/predict';
 
         const pythonResponse = await axios.post(
             PYTHON_AI_URL, 
             patientData,
-            { timeout: 60000 } // Render server cold start latency ను తట్టుకోవడానికి 60s Timeout
+            { timeout: 60000 } 
         );
         
         const { heart_attack_risk, probability, gen_ai_report } = pythonResponse.data;
@@ -143,7 +152,6 @@ const DoctorReportSchema = new mongoose.Schema({
 });
 const DoctorReport = mongoose.model('DoctorReport', DoctorReportSchema);
 
-// Nodemailer Config Fix for Render Cloud
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,

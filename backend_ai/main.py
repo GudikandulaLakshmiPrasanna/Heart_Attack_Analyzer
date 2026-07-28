@@ -4,10 +4,14 @@ from datetime import datetime
 from typing import Optional
 
 import pandas as pd
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from pymongo import MongoClient
+
+# 🌐 .env file the information is loaded
+load_dotenv()
 
 app = FastAPI()
 
@@ -20,13 +24,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 🎯 MongoDB Connection (Render URL lekunte Local URL fallback)
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
+# 🎯 MongoDB Connection (.env from MONGO_URI taken)
+MONGO_URI = os.getenv("MONGO_URI")
+
 client = MongoClient(MONGO_URI)
 db = client["heart_disease_db"]
 patients_collection = db["patients"]
 
-# 1. ML మోడల్ లోడ్ చేయడం
+# 1. ML model loading
 with open("heart_model.pkl", "rb") as f:
     model = pickle.load(f)
 

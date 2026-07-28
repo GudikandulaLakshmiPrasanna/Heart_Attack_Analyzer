@@ -13,10 +13,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// 1. MongoDB Connection
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/heart_disease_db';
+// 1. MongoDB Connection (.env taken)
+const MONGO_URI = process.env.MONGO_URI;
+
 mongoose.connect(MONGO_URI)
-  .then(() => console.log("yes... MongoDB Compass it was connected !"))
+  .then(() => console.log("yes... MongoDB Atlas connected successfully !"))
   .catch((err) => console.error("in database connection:", err));
 
 // -------------------------------------------------------------
@@ -93,7 +94,7 @@ app.get('/', (req, res) => {
 app.post('/api/predict', async (req, res) => {
     try {
         const patientData = req.body;
-        const pythonResponse = await axios.post(' https://heart-ai-backend.onrender.com/predict', patientData);
+        const pythonResponse = await axios.post('https://heart-ai-backend.onrender.com/predict', patientData);
         const { heart_attack_risk, probability, gen_ai_report } = pythonResponse.data;
 
         const newPatientReport = new Patient({
@@ -119,7 +120,7 @@ app.post('/api/predict', async (req, res) => {
 });
 
 // -------------------------------------------------------------
-// 📩 4. DOCTOR CONSULTATION & EMAIL ROUTE (DYNAMIC)
+//  4. DOCTOR CONSULTATION & EMAIL ROUTE (DYNAMIC)
 // -------------------------------------------------------------
 const DoctorReportSchema = new mongoose.Schema({
     patientName: String,
@@ -140,18 +141,18 @@ const transporter = nodemailer.createTransport({
 
 transporter.verify((error, success) => {
     if (error) {
-        console.error("❌ Nodemailer Gmail Config Error:", error.message);
+        console.error(" Nodemailer Gmail Config Error:", error.message);
     } else {
-        console.log("✅ Gmail Nodemailer ready to send emails!");
+        console.log(" Gmail Nodemailer ready to send emails!");
     }
 });
 
 app.post('/api/send-report-to-doctor', upload.single('reportFile'), async (req, res) => {
     try {
-        console.log("📥 Received Body:", req.body);
-        console.log("📎 Received File:", req.file ? req.file.originalname : "No File");
+        console.log(" Received Body:", req.body);
+        console.log(" Received File:", req.file ? req.file.originalname : "No File");
 
-        // 1. ఫ్రంటెండ్ నుంచి పంపిన User Email తీసుకోబడుతుంది
+        // 1. From frontend the sended User Email is taken
         const userEmail = req.body.userEmail || req.body.email;
         if (!userEmail) {
             return res.status(400).json({ status: 'error', message: 'Patient email is required!' });
@@ -159,14 +160,14 @@ app.post('/api/send-report-to-doctor', upload.single('reportFile'), async (req, 
 
         const TARGET_DOCTOR_EMAIL = process.env.DOCTOR_EMAIL || "classnotwo1223@gmail.com";
 
-        // 2. Database లో Patient వివరాలు వెతకడం
+        // 2.In Database the patient details are searching
         let patientDetails = await User.findOne({ email: { $regex: new RegExp(`^${userEmail.trim()}$`, 'i') } });
 
-        // 3. పేరుని dynamic గా డ్రా చేసుకోవడం (DB లో ఉన్న పేరు లేదా Frontend నుండి వచ్చిన పేరు)
+        // 3. the name dynamically taking (DB presented name or Frontend present name )
         const patientName = req.body.patientName || (patientDetails ? patientDetails.name : "Patient");
         const finalPatientEmail = userEmail.trim();
 
-        // 4. Consultation Record సేవ్ చేయడం
+        // 4. Consultation Record saving
         const newDoctorReport = new DoctorReport({
             patientName: patientName,
             patientEmail: finalPatientEmail,
@@ -175,11 +176,11 @@ app.post('/api/send-report-to-doctor', upload.single('reportFile'), async (req, 
         });
         await newDoctorReport.save();
 
-        // 5. Dynamic Details తో Email Sending
+        // 5. With Dynamic Details Email Sending
         const mailOptions = {
             from: `"HeartAI Portal" <${TARGET_DOCTOR_EMAIL}>`,
             to: TARGET_DOCTOR_EMAIL,
-            subject: `🚨 Patient Assessment Report - ${patientName}`,
+            subject: ` Patient Assessment Report - ${patientName}`,
             html: `
                 <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
                     <h2 style="color: #4F46E5;">HeartAI Patient Medical Consultation</h2>
@@ -203,7 +204,7 @@ app.post('/api/send-report-to-doctor', upload.single('reportFile'), async (req, 
         };
 
         await transporter.sendMail(mailOptions);
-        console.log(`✉️ Email sent successfully for Patient: ${patientName} (${finalPatientEmail})`);
+        console.log(` Email sent successfully for Patient: ${patientName} (${finalPatientEmail})`);
 
         return res.json({
             status: 'success',
@@ -211,7 +212,7 @@ app.post('/api/send-report-to-doctor', upload.single('reportFile'), async (req, 
         });
 
     } catch (error) {
-        console.error("❌ Doctor report sending error:", error);
+        console.error(" Doctor report sending error:", error);
         return res.status(500).json({ status: 'error', message: error.message || 'Failed to process report or send mail' });
     }
 });

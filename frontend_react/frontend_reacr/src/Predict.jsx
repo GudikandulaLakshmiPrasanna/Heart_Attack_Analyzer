@@ -66,8 +66,10 @@ export default function Predict() {
     };
 
     try {
-      // ✅ Render Backend API URL ఇక్కడ చేర్చాం
-      const response = await fetch('https://heart-attack-analyzer.onrender.com/api/predict', {
+      // ✅ ప్రైమరీ Node.js MERN Backend URL మార్చాం
+      const API_URL = process.env.REACT_APP_API_URL || 'https://heart-backend-mern.onrender.com';
+      
+      const response = await fetch(`${API_URL}/api/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -92,7 +94,7 @@ export default function Predict() {
       
       setMlRisk(finalRisk);
       setMlProbability(prob);
-      setAiReport(data.gen_ai_report);
+      setAiReport(data.gen_ai_report || data.report);
     } catch (error) {
       console.error("Error:", error);
       setAiReport("Failed to connect to server. Ensure Backend on Render is awake and running.");

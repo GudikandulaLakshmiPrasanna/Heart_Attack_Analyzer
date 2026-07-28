@@ -97,7 +97,16 @@ app.get('/', (req, res) => {
 app.post('/api/predict', async (req, res) => {
     try {
         const patientData = req.body;
-        const pythonResponse = await axios.post('https://heart-ai-backend.onrender.com/predict', patientData);
+        
+        // 🎯 .env నుండి Python Backend URL తీసుకోవడం + 60s Timeout ఇవ్వడం
+        const PYTHON_AI_URL = process.env.PYTHON_AI_URL || 'https://heart-ai-backend.onrender.com/predict';
+
+        const pythonResponse = await axios.post(
+            PYTHON_AI_URL, 
+            patientData,
+            { timeout: 60000 } // Render server cold start latency ను తట్టుకోవడానికి 60s Timeout
+        );
+        
         const { heart_attack_risk, probability, gen_ai_report } = pythonResponse.data;
 
         const newPatientReport = new Patient({
@@ -118,7 +127,7 @@ app.post('/api/predict', async (req, res) => {
 
     } catch (error) {
         console.error("error:", error.message);
-        res.status(500).json({ success: false, message: "In server some problem came!" });
+        res.status(500).json({ success: false, message: "In server some problem came! ML service timeout or error." });
     }
 });
 

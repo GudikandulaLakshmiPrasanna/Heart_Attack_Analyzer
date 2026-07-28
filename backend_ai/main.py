@@ -10,12 +10,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from pymongo import MongoClient
 
-# 🌐 .env file the information is loaded
+# 🌐 .env file information is loaded
 load_dotenv()
 
 app = FastAPI()
 
-# 🌐 CORS సెటప్
+# 🌐 CORS Setup
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -26,14 +26,28 @@ app.add_middleware(
 
 # 🎯 MongoDB Connection (.env from MONGO_URI taken)
 MONGO_URI = os.getenv("MONGO_URI")
+client = None
+patients_collection = None
 
-client = MongoClient(MONGO_URI)
-db = client["heart_disease_db"]
-patients_collection = db["patients"]
+if MONGO_URI:
+    try:
+        client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=5000)
+        db = client["heart_disease_db"]
+        patients_collection = db["patients"]
+    except Exception as e:
+        print(f"MongoDB Initial Connection Warning: {e}")
 
 # 1. ML model loading
-with open("heart_model.pkl", "rb") as f:
-    model = pickle.load(f)
+try:
+    with open("heart_model.pkl", "rb") as f:
+        model = pickle.load(f)
+except Exception as e:
+    print(f"Warning: Model file missing or failed to load: {e}")
+
+# 🏠 Root Endpoint (Render keep-alive & health check కోసం)
+@app.get("/")
+def read_root():
+    return {"status": "success", "message": "HeartAI Python ML Engine is active!"}
 
 # 🎯 2. Local Clinical AI Engine
 def generate_local_ai_report(data, risk_text, heart_disease_risk_percentage):
@@ -148,13 +162,16 @@ class PatientData(BaseModel):
 
 @app.post("/predict")
 def predict_heart_attack(data: PatientData):
-    input_data = data.dict()
+    # Pydantic v1 / v2 Compatibility
+    try:
+        input_data = data.model_dump()
+    except AttributeError:
+        input_data = data.dict()
     
     ml_input_data = input_data.copy()
     extra_fields = ["name", "height", "weight", "diabetes", "smoking", "family_history", "troponin"]
     for field in extra_fields:
-        if field in ml_input_data:
-            del ml_input_data[field]
+        ml_input_data.pop(field, None)
             
     df_input = pd.DataFrame([ml_input_data])
 
@@ -209,11 +226,12 @@ def predict_heart_attack(data: PatientData):
         "createdAt": datetime.now()
     }
     
-    # Try block so database issue won't crash the whole API server
-    try:
-        patients_collection.insert_one(patient_record)
-    except Exception as e:
-        print(f"Database error ignored to prevent app crash: {e}")
+    # Database insertion inside safe block
+    if patients_collection is not None:
+        try:
+            patients_collection.insert_one(patient_record)
+        except Exception as e:
+            print(f"Database error ignored to prevent app crash: {e}")
 
     return {
         "heart_attack_risk": prediction_val,

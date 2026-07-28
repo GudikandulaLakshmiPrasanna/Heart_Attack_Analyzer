@@ -13,10 +13,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// 1. MongoDB Connection (.env taken)
+// 1. MongoDB Connection Options Fix
 const MONGO_URI = process.env.MONGO_URI;
 
-mongoose.connect(MONGO_URI)
+mongoose.connect(MONGO_URI, {
+    serverSelectionTimeoutMS: 5000,
+    family: 4 // Render IPv6 issue fix
+})
   .then(() => console.log("yes... MongoDB Atlas connected successfully !"))
   .catch((err) => console.error("in database connection:", err));
 
@@ -120,7 +123,7 @@ app.post('/api/predict', async (req, res) => {
 });
 
 // -------------------------------------------------------------
-//  4. DOCTOR CONSULTATION & EMAIL ROUTE (DYNAMIC)
+// 🩺 4. DOCTOR CONSULTATION & EMAIL ROUTE
 // -------------------------------------------------------------
 const DoctorReportSchema = new mongoose.Schema({
     patientName: String,
@@ -131,19 +134,14 @@ const DoctorReportSchema = new mongoose.Schema({
 });
 const DoctorReport = mongoose.model('DoctorReport', DoctorReportSchema);
 
+// Nodemailer Config Fix for Render Cloud
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         user: process.env.GMAIL_USER || 'classnotwo1223@gmail.com',
         pass: process.env.GMAIL_PASS
-    }
-});
-
-transporter.verify((error, success) => {
-    if (error) {
-        console.error(" Nodemailer Gmail Config Error:", error.message);
-    } else {
-        console.log(" Gmail Nodemailer ready to send emails!");
     }
 });
 
@@ -152,7 +150,6 @@ app.post('/api/send-report-to-doctor', upload.single('reportFile'), async (req, 
         console.log(" Received Body:", req.body);
         console.log(" Received File:", req.file ? req.file.originalname : "No File");
 
-        // 1. From frontend the sended User Email is taken
         const userEmail = req.body.userEmail || req.body.email;
         if (!userEmail) {
             return res.status(400).json({ status: 'error', message: 'Patient email is required!' });
@@ -160,14 +157,11 @@ app.post('/api/send-report-to-doctor', upload.single('reportFile'), async (req, 
 
         const TARGET_DOCTOR_EMAIL = process.env.DOCTOR_EMAIL || "classnotwo1223@gmail.com";
 
-        // 2.In Database the patient details are searching
         let patientDetails = await User.findOne({ email: { $regex: new RegExp(`^${userEmail.trim()}$`, 'i') } });
 
-        // 3. the name dynamically taking (DB presented name or Frontend present name )
         const patientName = req.body.patientName || (patientDetails ? patientDetails.name : "Patient");
         const finalPatientEmail = userEmail.trim();
 
-        // 4. Consultation Record saving
         const newDoctorReport = new DoctorReport({
             patientName: patientName,
             patientEmail: finalPatientEmail,
@@ -176,7 +170,6 @@ app.post('/api/send-report-to-doctor', upload.single('reportFile'), async (req, 
         });
         await newDoctorReport.save();
 
-        // 5. With Dynamic Details Email Sending
         const mailOptions = {
             from: `"HeartAI Portal" <${TARGET_DOCTOR_EMAIL}>`,
             to: TARGET_DOCTOR_EMAIL,

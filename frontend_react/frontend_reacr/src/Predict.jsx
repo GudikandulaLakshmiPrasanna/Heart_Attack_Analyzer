@@ -67,7 +67,7 @@ export default function Predict() {
 
     try {
       // ✅ Render Backend API URL ఇక్కడ చేర్చాం
-      const response = await fetch('https://heart-attack-analyzer.onrender.com/predict', {
+      const response = await fetch('https://heart-attack-analyzer.onrender.com/api/predict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

@@ -17,8 +17,8 @@ export default function Signup({ onLoginSuccess }) {
     setLoading(true);
 
     try {
-      // ✅ Render Backend API URL here updated
-      const response = await fetch('https://heart-attack-analyzer.onrender.com/api/signup', {
+      // ✅ Updated to point to Node.js Backend URL
+      const response = await fetch('https://heart-backend-mern.onrender.com/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

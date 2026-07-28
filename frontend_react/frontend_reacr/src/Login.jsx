@@ -21,8 +21,8 @@ export default function Login({ onLoginSuccess }) {
     setLoading(true);
 
     try {
-      // ✅ Render Backend API URL here
-      const response = await fetch('https://heart-attack-analyzer.onrender.com/api/login', {
+      // ✅ Updated to point to Node.js Backend URL
+      const response = await fetch('https://heart-backend-mern.onrender.com./api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -33,7 +33,7 @@ export default function Login({ onLoginSuccess }) {
       if (response.ok && data.status === 'success') {
         setMessage({ text: 'Login Successful!', type: 'success' });
         
-        // LocalStorage lo store cheyadamento
+        // LocalStorage lo store cheyadam
         localStorage.setItem('user', JSON.stringify(data.user));
         
         if (onLoginSuccess) {
